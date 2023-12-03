@@ -25,7 +25,7 @@ export async function createUser(newUser: Partial<User>): Promise<Result> {
     email: newUser.email,
     password: newUser.password,
   });
-  return { success: true, message: "The new user has been added successfully" };
+  return { success: true, message: "Registration successful. Please log in to continue." };
 }
 
 export async function readUserbyID(id: number): Promise<User[]> {

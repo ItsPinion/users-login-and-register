@@ -51,7 +51,7 @@ export async function POST(request: Request) {
 
   if (duplicate[0]) {
     return Response.json(
-      { success: false, message: "email is already used" },
+      { success: false, message: "Email is already in use" },
       {
         status: 400,
       }

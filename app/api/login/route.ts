@@ -1,12 +1,7 @@
 import { hash } from "@/lib/noob-hashing";
+import { loginRequestSchema } from "@/lib/schema";
 import { User } from "@/lib/types";
-import { createUser, readUserbyEmail } from "@/lib/user";
-import { z } from "zod";
-
-const loginRequestSchema = z.object({
-  email: z.string().min(1).max(255),
-  password: z.string().min(1).max(255),
-});
+import { readUserbyEmail } from "@/lib/user";
 
 export async function POST(request: Request) {
   let body;
@@ -65,7 +60,7 @@ export async function POST(request: Request) {
 
   if (!user[0]) {
     return Response.json(
-      { success: false, message: "user does not exist" },
+      { success: false, message: "Email does not match" },
       {
         status: 400,
       }
@@ -74,7 +69,7 @@ export async function POST(request: Request) {
 
   if (userValidation.data.password !== user[0].password) {
     return Response.json(
-      { success: false, message: "password did not match" },
+      { success: false, message: "Password did not match" },
       {
         status: 401,
       }
@@ -83,6 +78,6 @@ export async function POST(request: Request) {
 
   return Response.json({
     success: true,
-    message: "user has logged in successfully",
+    message: "Login successful. Redirecting you to your dashboard.",
   });
 }
