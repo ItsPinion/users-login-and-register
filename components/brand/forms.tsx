@@ -70,7 +70,7 @@ export function LoginForm() {
               <FormLabel>Email</FormLabel>
 
               <FormControl>
-                <Input placeholder="Your email" {...field} />
+                <Input type="email" placeholder="Your email" {...field} />
               </FormControl>
 
               <FormMessage />
@@ -153,7 +153,7 @@ export function RegisterForm() {
               <FormLabel>Email</FormLabel>
 
               <FormControl>
-                <Input placeholder="Your email" {...field} />
+                <Input type="email" placeholder="Your email" {...field} />
               </FormControl>
 
               <FormMessage />
