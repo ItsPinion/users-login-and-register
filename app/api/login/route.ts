@@ -1,4 +1,4 @@
-import { hash } from "@/lib/noob-hashing";
+import { hash, verify } from "@/lib/hashing";
 import { loginRequestSchema } from "@/lib/schema";
 import { User } from "@/lib/types";
 import { readUserbyEmail } from "@/lib/user";
@@ -30,6 +30,7 @@ export async function POST(request: Request) {
 
   try {
     userValidation.data.password = await hash(userValidation.data.password);
+    console.log(userValidation.data.password);
   } catch (error) {
     return Response.json(
       {
@@ -67,7 +68,7 @@ export async function POST(request: Request) {
     );
   }
 
-  if (userValidation.data.password !== user[0].password) {
+  if (await verify(userValidation.data.password, user[0].password)) {
     return Response.json(
       { success: false, message: "Password did not match" },
       {

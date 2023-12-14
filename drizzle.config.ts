@@ -1,7 +1,6 @@
-import "dotenv/config";
-import type { Config } from "drizzle-kit";
+import { Config } from "drizzle-kit";
 
 export default {
   schema: "./lib/user.ts",
-  out: "./drizzle",
+  out: "./drizzle/migrations",
 } satisfies Config;

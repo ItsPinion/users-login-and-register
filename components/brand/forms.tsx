@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { PasswordInput } from "./input";
 import { useState } from "react";
 import { Result } from "@/lib/types";
-import { hash } from "@/lib/noob-hashing";
+import { hash } from "@/lib/hashing";
 import { loginRequestSchema } from "@/lib/schema";
 import { z } from "zod";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"

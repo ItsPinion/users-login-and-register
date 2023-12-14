@@ -1,11 +1,12 @@
-import { LoginForm, RegisterForm } from "@/components/brand/forms";
 import { FormTabs } from "@/components/brand/tabs";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { UserButton, currentUser } from "@clerk/nextjs";
+import { Annie_Use_Your_Telescope } from "next/font/google";
 
-export default function Home() {
+export default async function Home() {
+  const user = await currentUser();
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
-      <FormTabs></FormTabs>
+      <FormTabs />
     </main>
   );
 }

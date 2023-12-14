@@ -1,4 +1,4 @@
-import { hash } from "@/lib/noob-hashing";
+import { hash } from "@/lib/hashing";
 import { User } from "@/lib/types";
 import { createUser, readUserbyEmail } from "@/lib/user";
 import { z } from "zod";
