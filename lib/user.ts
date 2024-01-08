@@ -1,16 +1,11 @@
 import { db } from "./db";
-import { and, eq, gt, sql } from "drizzle-orm";
+import { and, eq, gt } from "drizzle-orm";
 import { User, Result } from "./types";
 
-const tableName = "users";
 
-import { serial, varchar, pgTable } from "drizzle-orm/pg-core";
+import { usersSchema } from "@/schema";
 
-export const usersSchema = pgTable(tableName, {
-  id: serial("id").primaryKey(),
-  email: varchar("email", { length: 256 }).notNull(),
-  password: varchar("password", { length: 256 }).notNull(),
-});
+
 export async function createUser(newUser: Partial<User>): Promise<Result> {
   if (!newUser.email || !newUser.password) {
     throw new Error("user email & password required");

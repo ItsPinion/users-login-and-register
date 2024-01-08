@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Result } from "@/lib/types"
 import { RocketIcon } from "@radix-ui/react-icons"
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons"

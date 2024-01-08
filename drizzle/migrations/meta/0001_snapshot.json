@@ -1,6 +1,6 @@
 {
-  "id": "beebc2d2-11a0-4185-a2e9-0317d4079246",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "840f0f88-d471-4f6c-809c-4320dae9548e",
+  "prevId": "beebc2d2-11a0-4185-a2e9-0317d4079246",
   "version": "5",
   "dialect": "pg",
   "tables": {
@@ -30,7 +30,22 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "roles_title_unique": {
+          "name": "roles_title_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "title"
+          ]
+        },
+        "roles_perms_unique": {
+          "name": "roles_perms_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "perms"
+          ]
+        }
+      }
     },
     "user_roles": {
       "name": "user_roles",
@@ -88,7 +103,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      }
     }
   },
   "enums": {

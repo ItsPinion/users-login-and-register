@@ -1,5 +1,5 @@
 import { hash, verify } from "@/lib/hashing";
-import { loginRequestSchema } from "@/lib/schema";
+import { RoleRequestSchema } from "@/lib/zSchema";
 import { User } from "@/lib/types";
 import { readUserbyEmail } from "@/lib/user";
 
@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const userValidation = loginRequestSchema.safeParse(body);
+  const userValidation = RoleRequestSchema.safeParse(body);
 
   const headers = new Headers();
   headers.set("content-type", "application/json");
@@ -30,7 +30,6 @@ export async function POST(request: Request) {
 
   try {
     userValidation.data.password = await hash(userValidation.data.password);
-    console.log(userValidation.data.password);
   } catch (error) {
     return Response.json(
       {
@@ -43,7 +42,7 @@ export async function POST(request: Request) {
     );
   }
 
-  let user: User[];
+  let user:User[];
 
   try {
     user = await readUserbyEmail(userValidation.data.email);

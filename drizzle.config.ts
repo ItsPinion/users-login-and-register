@@ -1,6 +1,6 @@
 import { Config } from "drizzle-kit";
 
 export default {
-  schema: "./lib/user.ts",
+  schema: "./schema/index.ts",
   out: "./drizzle/migrations",
 } satisfies Config;

@@ -3,7 +3,7 @@ import { User } from "@/lib/types";
 import { createUser, readUserbyEmail } from "@/lib/user";
 import { z } from "zod";
 
-const registerRequestSchema = z.object({
+const roleRequestSchema = z.object({
   email: z.string().min(1).max(255),
   password: z.string().min(1).max(255),
 });
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const userValidation = registerRequestSchema.safeParse(body);
+  const userValidation = roleRequestSchema.safeParse(body);
 
   const headers = new Headers();
   headers.set("content-type", "application/json");

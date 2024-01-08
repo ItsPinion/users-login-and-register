@@ -14,25 +14,23 @@ import { Input } from "@/components/ui/input";
 import { PasswordInput } from "./input";
 import { useState } from "react";
 import { Result } from "@/lib/types";
-import { hash } from "@/lib/hashing";
-import { loginRequestSchema } from "@/lib/schema";
+import { RoleRequestSchema } from "@/lib/zSchema";
 import { z } from "zod";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { PopUp } from "./alert";
 
 export function LoginForm() {
 
   const [result, setResult] = useState({success:false,message:""})
 
-  const form = useForm<z.infer<typeof loginRequestSchema>>({
-    resolver: zodResolver(loginRequestSchema),
+  const form = useForm<z.infer<typeof RoleRequestSchema>>({
+    resolver: zodResolver(RoleRequestSchema),
     defaultValues: {
       email: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof loginRequestSchema>) {
+  async function onSubmit(values: z.infer<typeof RoleRequestSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     try {
@@ -108,15 +106,15 @@ export function LoginForm() {
 export function RegisterForm() {
   const [result, setResult] = useState({success:false,message:""})
 
-  const form = useForm<z.infer<typeof loginRequestSchema>>({
-    resolver: zodResolver(loginRequestSchema),
+  const form = useForm<z.infer<typeof RoleRequestSchema>>({
+    resolver: zodResolver(RoleRequestSchema),
     defaultValues: {
       email: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof loginRequestSchema>) {
+  async function onSubmit(values: z.infer<typeof RoleRequestSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     try {

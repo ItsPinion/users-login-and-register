@@ -15,7 +15,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import { LoginForm, RegisterForm } from "./forms"
+import { LoginForm, RegisterForm } from "./userForms"
 
 export function FormTabs() {
   return (
